@@ -1,0 +1,473 @@
+/* 
+==============================================
+   Variaveis de Cores e Fontes
+==============================================
+*/
+:root {
+    /* Paleta de Cores */
+    --color-white: #FFFFFF;
+    --color-beige: #FDFBF7; /* bege bem clarinho para fundo */
+    --color-gold-light: #E8D09E;
+    --color-gold: #C5A059; /* dourado suave */
+    --color-gold-dark: #A58039;
+    --color-gray-light: #F5F5F5;
+    --color-gray: #E0E0E0;
+    --color-text-dark: #333333; /* Cinza escuro para contraste elegante */
+    --color-text-muted: #666666;
+    
+    /* Fontes */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+    
+    /* Sombras e bordas */
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 15px 35px rgba(197, 160, 89, 0.15);
+    --border-radius: 12px;
+    --border-radius-pill: 50px;
+}
+
+/* 
+==============================================
+   Reset e Base
+==============================================
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-beige);
+    color: var(--color-text-dark);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Sutil gradiente no fundo para dar profundidade */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.8) 0%, rgba(253, 251, 247, 1) 50%, rgba(245, 245, 245, 0.5) 100%);
+    z-index: -1;
+}
+
+/* Container Principal (estilo link na bio, estreito) */
+.container {
+    width: 100%;
+    max-width: 480px; /* Perfeito para mobile/bio link */
+    padding: 40px 24px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+/* 
+==============================================
+   Cabecalho / Perfil
+==============================================
+*/
+.profile-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.brand-logo {
+    max-width: 140px;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 8px; /* Cantos levemente arredondados caso a imagem não tenha fundo transparente */
+    box-shadow: var(--shadow-soft);
+}
+
+.profile-image-wrapper {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    margin: 0 auto 20px;
+}
+
+.profile-image-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    padding: 4px;
+    background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold));
+    box-shadow: var(--shadow-soft);
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--color-white);
+}
+
+.fallback-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-white);
+    color: var(--color-gold-light);
+    font-size: 40px;
+}
+
+/* Badge flutuante (ícone dente) */
+.floating-badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--color-white);
+    color: var(--color-gold);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-size: 16px;
+    border: 1px solid var(--color-gray-light);
+}
+
+.name {
+    font-family: var(--font-heading);
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+}
+
+.profession {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--color-gold);
+    margin-bottom: 15px;
+}
+
+/* Divisor elegante */
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    width: 80%;
+    gap: 15px;
+}
+
+.divider .line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--color-gold-light), transparent);
+}
+
+.color-gold {
+    color: var(--color-gold);
+    font-size: 12px;
+}
+
+.main-phrase {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 17px;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    padding: 0 10px;
+}
+
+/* 
+==============================================
+   Botoes (Links)
+==============================================
+*/
+.links-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 25px;
+    border-radius: var(--border-radius-pill);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-soft);
+}
+
+.btn-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn .icon {
+    font-size: 18px;
+}
+
+.btn .arrow-icon {
+    font-size: 12px;
+    opacity: 0.5;
+    transition: transform 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn:hover .arrow-icon {
+    transform: translateX(4px);
+    opacity: 1;
+}
+
+/* Estilo Botao Primario (Agendar Consulta) */
+.btn-primary {
+    background: linear-gradient(135deg, var(--color-gold), var(--color-gold-dark));
+    color: var(--color-white);
+    border: none;
+    box-shadow: 0 8px 20px rgba(197, 160, 89, 0.3);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 12px 25px rgba(197, 160, 89, 0.4);
+    background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold));
+}
+
+/* Estilo Botao WhatsApp */
+.btn-whatsapp {
+    background-color: var(--color-white);
+    color: var(--color-text-dark);
+    border: 1px solid var(--color-gray);
+}
+
+.btn-whatsapp .icon {
+    color: #25D366; /* Cor oficial sutil do Whatsapp pra dar indentidade sem roubar o design */
+}
+
+.btn-whatsapp:hover {
+    border-color: #25D366;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.15);
+}
+
+/* Estilo Botao Instagram */
+.btn-instagram {
+    background-color: var(--color-white);
+    color: var(--color-text-dark);
+    border: 1px solid var(--color-gray);
+}
+
+.btn-instagram .icon {
+    color: #E1306C; /* Cor brand insta */
+}
+
+.btn-instagram:hover {
+    border-color: #E1306C;
+    box-shadow: 0 10px 25px rgba(225, 48, 108, 0.15);
+}
+
+
+/* 
+==============================================
+   Cards (Sobre e Info)
+==============================================
+*/
+.glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: var(--border-radius);
+    padding: 30px 25px;
+    margin-bottom: 25px;
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.about-icon {
+    color: var(--color-gold);
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    color: var(--color-text-dark);
+    margin-bottom: 15px;
+}
+
+.text-start {
+    text-align: left;
+}
+
+.about-text {
+    font-size: 14px;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+}
+
+/* Lista de Informacoes */
+.info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.info-icon {
+    background-color: var(--color-white);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-gold);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    border: 1px solid var(--color-gray-light);
+    flex-shrink: 0;
+}
+
+.info-details h4 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    margin-top: 2px;
+}
+
+.info-details p {
+    font-size: 14px;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+}
+
+/* 
+==============================================
+   Rodape
+==============================================
+*/
+.site-footer {
+    width: 100%;
+    text-align: center;
+    padding: 30px 20px;
+    background-color: var(--color-white);
+    border-top: 1px solid var(--color-gray-light);
+    margin-top: auto;
+}
+
+.footer-logo-img {
+    max-width: 80px;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.site-footer p {
+    font-size: 12px;
+    color: var(--color-text-muted);
+}
+
+.footer-subtext {
+    margin-top: 4px;
+    opacity: 0.7;
+}
+
+/* 
+==============================================
+   Animacoes
+==============================================
+*/
+.fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.pulse-animation {
+    animation: gentle-pulse 2.5s infinite;
+}
+
+@keyframes gentle-pulse {
+    0% {
+        box-shadow: 0 4px 15px rgba(197, 160, 89, 0.2);
+    }
+    50% {
+        box-shadow: 0 4px 25px rgba(197, 160, 89, 0.5);
+    }
+    100% {
+        box-shadow: 0 4px 15px rgba(197, 160, 89, 0.2);
+    }
+}
+
+/* Responsividade de tela cheia/desktop */
+@media (min-width: 768px) {
+    body {
+        justify-content: center;
+    }
+    
+    .container {
+        background-color: var(--color-white);
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+        margin: 40px auto;
+        padding: 50px 40px;
+    }
+
+    .glass-card {
+        background: var(--color-gray-light);
+        border: none;
+    }
+    
+    .background-overlay {
+        background: radial-gradient(circle at top right, rgba(232, 208, 158, 0.1) 0%, rgba(253, 251, 247, 1) 50%, rgba(245, 245, 245, 0.8) 100%);
+    }
+
+    .site-footer {
+        background-color: transparent;
+        border-top: none;
+    }
+}
